@@ -27,14 +27,37 @@
   
 </head>
 <body>
+{{> main }}
+{{> eventMain }}
+{{> event }}
+{{> event2 }}
+{{> eventNavigation }}
+{{> eventNavigation2 }}
+{{> select1 }}
+{{> select2 }}
+{{> select3 }}
+{{> cardShoeStore }}
+{{> hatStore }}
+{{> cardUmbrellaStore }}
+{{> shoestoreNaviagation }}
+{{> hatstoreNavigation }}
+{{> settings }}
+{{> adminLogin }}
+{{> adminMain }}
+{{> adminAddTilbud }}
+{{> adminOversige }}
+{{> adminStatistics }}
+</body>
 
+<template name="main">
   <!-- Main -->
     <div data-role="page" id="page3">
         <div data-theme="a" data-role="content">
             <div class="open_cont">
               
               <p class="open">Open by Night</p>
-              <p class="green">05.31.</p>
+              <!--p class="green">05.31.</p-->
+              <p class="green">{{ date }}</p>
               
             </div>  
             <a data-role="button" data-transition="slide" href="#page1">
@@ -50,9 +73,10 @@
                 Admin
             </a>
         </div>
-   
-  <!-- Events Main -->
   </div>
+</template>
+<template name="eventMain">
+  <!-- Events Main -->
   <div data-role="page" id="page20" data-theme="b">
       <div data-theme="b" data-role="header">
           <a data-role="button" data-transition="slide" href="#page3" class="ui-btn-left">
@@ -107,6 +131,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="event">
   <!-- Event -->
   <div data-role="page" id="page21">
       <div data-theme="a" data-role="header">
@@ -165,6 +191,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="event2">
   <!-- Event 2 -->
   <div data-role="page" id="page23">
       <div data-theme="a" data-role="header">
@@ -223,6 +251,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="eventNavigation">
   <!-- Navigate Event -->
   <div data-role="page" id="page22">
       <div data-theme="a" data-role="header">
@@ -268,6 +298,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="eventNavigation2">
   <!-- Navigate Event 2 -->
   <div data-role="page" id="page24">
       <div data-theme="a" data-role="header">
@@ -313,6 +345,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="select1">
   <!-- Select 1# -->
   <div data-role="page" id="page1" data-theme="a">
       <div data-theme="a" data-role="header">
@@ -363,6 +397,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="select2">
   <!-- Select 2# -->
   <div data-role="page" id="page8">
       <div data-theme="a" data-role="header">
@@ -508,6 +544,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="select3">
   <!-- Select 3# -->
   <div data-role="page" id="page9">
       <div data-theme="a" data-role="header">
@@ -651,6 +689,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="cardShoeStore">
   <!-- Card ShoeStore -->
   <div data-role="page" id="page4">
       <div data-theme="a" data-role="header">
@@ -723,6 +763,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="hatStore">
   <!-- Card HatStore -->
   <div data-role="page" id="page6">
       <div data-theme="a" data-role="header">
@@ -795,6 +837,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="cardUmbrellaStore">
   <!-- Card UmbrellaStore -->
   <div data-role="page" id="page7">
       <div data-theme="a" data-role="header">
@@ -867,6 +911,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="shoestoreNaviagation">
   <!-- Navigate Shoestore -->
   <div data-role="page" id="page5">
       <div data-theme="a" data-role="header">
@@ -912,6 +958,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="hatstoreNavigation">
   <!-- Navigate HatStore -->
   <div data-role="page" id="page10">
       <div data-theme="a" data-role="header">
@@ -957,6 +1005,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="umbrellastoreNavigation">
   <!-- Navigate UmbrellaStore -->
   <div data-role="page" id="page11">
       <div data-theme="a" data-role="header">
@@ -1002,6 +1052,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="settings">
   <!-- Settings -->
   <div data-role="page" id="page12">
       <div data-theme="a" data-role="header">
@@ -1098,6 +1150,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="electronics">
   <!-- Elektronic -->
   <div data-role="page" id="page13">
       <div data-theme="a" data-role="header">
@@ -1182,6 +1236,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="adminLogin">
   <!-- Admin Login -->
   <div data-role="page" id="page14" data-theme="a">
       <div data-theme="a" data-role="header">
@@ -1234,6 +1290,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="adminMain">
   <!-- Admin Main -->
   <div data-role="page" id="page15" data-theme="a">
       <div data-theme="a" data-role="header">
@@ -1289,6 +1347,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="adminAddTilbud">
   <!-- Admin Add Tilbud -->
   <div data-role="page" id="page16" data-theme="a">
       <div data-theme="a" data-role="header">
@@ -1416,6 +1476,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="adminOversige">
   <!-- Admin Oversigt -->
   <div data-role="page" id="page17">
       <div data-theme="a" data-role="header">
@@ -1494,6 +1556,8 @@
           </ul>
       </div>
   </div>
+</template>
+<template name="adminStatistics">
   <!-- Admin Statistics -->
   <div data-role="page" id="page18">
       <div data-theme="a" data-role="header">
@@ -1619,5 +1683,4 @@
           </ul>
       </div>
   </div>
-
-</body>
+</template>
