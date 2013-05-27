@@ -1,0 +1,20 @@
+.green {
+	
+
+	font-family: HelveticaNeue-Bold;
+	font-size: 19px;
+	color: #FFF1BC;
+	
+}
+
+.open {
+	font-family: HelveticaNeue-Bold;
+	font-size: 48px;
+	color: #FFFFFF;
+	
+}
+
+.open_cont {
+	paddin-right: 25%;
+	padding-bottom: 25%;
+}
