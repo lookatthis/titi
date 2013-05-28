@@ -34,17 +34,13 @@ Time tilbud
 
 # Template oversigt
 
-- landing page with list of events and offers for user
-- single offer view
-- company dashboard: listCompanyEvents + add event
+- timetilbud - landing page and list of offers by time
+    - date
+    - events: `{"18:00 - 19:00": [{_id: "id", image: "url", title: "title", description: "description", isEvent: true}]}`
+- showEvent - single event view
+- manageEvents - list of events to edit
+    - events: `{"18:00 - 19:00": [{_id: "id", image: "url", title: "title", description: "description", isEvent: true}]}`
 - editEvent
-    - company
-    - product
-    - description
-    - reduction
-    - price
-    - starttime
-    - endtime
 
 
 # Code
@@ -65,5 +61,5 @@ Time tilbud
 # Authors
 
 - http://lookatthis.dk - business model, content
-- http://gored.hu - html/css
-- http://rasmuserik.com - backend
+- http://gored.hu - html, css
+- http://rasmuserik.com - scripting, html, and backend
