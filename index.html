@@ -27,6 +27,9 @@
   
 </head>
 <body>
+{{> timetilbud }}
+</body>
+<template name="oldbody">
 {{> main }}
 {{> eventMain }}
 {{> event }}
@@ -47,7 +50,56 @@
 {{> adminAddTilbud }}
 {{> adminOversige }}
 {{> adminStatistics }}
-</body>
+</template>
+
+<template name="timetilbud">
+    <div data-role="page" id="listEvents">
+        <div data-theme="a" data-role="content">
+            <div class="open_cont">
+              <p class="open">Open by Night</p>
+              <p class="green">{{ date }}</p>
+            </div>  
+            {{> eventList }}
+              <p>Powered by 
+                <img src="themes/images/titi_logo.png" alt="TiTi logo" width="60" height="53">
+              </p>
+            <a data-transition="slide" href="#page14">
+                Admin
+            </a>
+        </div>
+  </div>
+</template>
+
+<template name="eventList">
+    <div data-role="collapsible">
+        <h3>19:00 - 20:00</h3>
+        <ul data-role="listview">
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+        </ul>
+    </div>
+    <div data-role="collapsible">
+        <h3>20:00 - 21:00</h3>
+        <ul data-role="listview">
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+        </ul>
+    </div>
+    <div data-role="collapsible">
+        <h3>21:00 - 22:00</h3>
+        <ul data-role="listview">
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+            <li><img src="logo.png"><h3>Tilbudstitel</h3><p>Tilbudsdescription</p></li>
+        </ul>
+    </div>
+</template>
+
 
 <template name="main">
   <!-- Main -->
@@ -1359,7 +1411,7 @@
               Logout
           </a>
           <h3>
-              Shoebox ASP
+              {{company}}
           </h3>
       </div>
       <div data-role="content">
@@ -1367,13 +1419,13 @@
               <label for="textinput5">
                   Vare
               </label>
-              <input name="" id="textinput5" placeholder="" value="" type="text">
+              <input name="" id="textinput5" placeholder="" value="{{product}}" type="text">
           </div>
           <div data-role="fieldcontain">
               <label for="textarea1">
                   Tekst
               </label>
-              <textarea name="" id="textarea1" placeholder=""></textarea>
+              <textarea name="" id="textarea1" placeholder="" value="{{description}}"></textarea>
           </div>
           <div class="ui-grid-a">
               <div class="ui-block-a">
@@ -1381,7 +1433,7 @@
                       <label for="textinput6">
                           Rabat
                       </label>
-                      <input name="" id="textinput6" placeholder="%" value="" type="text">
+                      <input name="" id="textinput6" placeholder="%" value="{{reduction}}" type="text">
                   </div>
               </div>
               <div class="ui-block-b">
@@ -1389,7 +1441,7 @@
                       <label for="textinput7">
                           Pris
                       </label>
-                      <input name="" id="textinput7" placeholder="Dkr" value="" type="text">
+                      <input name="" id="textinput7" placeholder="Dkr" value="{{price}}" type="text">
                   </div>
               </div>
           </div>
@@ -1399,7 +1451,7 @@
                       <label for="textinput10">
                           Start
                       </label>
-                      <input name="" id="textinput10" placeholder="" value="" type="datetime">
+                      <input name="" id="textinput10" placeholder="" value="{{starttime}}" type="datetime">
                   </div>
                   <h5>
                       Attach Photo
@@ -1410,7 +1462,7 @@
                       <label for="textinput11">
                           Slut
                       </label>
-                      <input name="" id="textinput11" placeholder="" value="" type="datetime">
+                      <input name="" id="textinput11" placeholder="" value="{{endtime}}" type="datetime">
                   </div>
               </div>
           </div>

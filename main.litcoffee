@@ -32,7 +32,28 @@ Time tilbud
     - name
     - logo
 
+# Template oversigt
+
+- landing page with list of events and offers for user
+- single offer view
+- company dashboard: listCompanyEvents + add event
+- editEvent
+    - company
+    - product
+    - description
+    - reduction
+    - price
+    - starttime
+    - endtime
+
+
 # Code
+
+## Databases
+
+    Users = new Meteor.Collection("users");
+    Events = new Meteor.Collection("events");
+    Shops = new Meteor.Collection("shops");
 
     Meteor.startup ->
         console.log "hello"
