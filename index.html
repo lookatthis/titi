@@ -65,7 +65,18 @@
               <p class="open">Open by Night</p>
               <p class="green">{{ date }}</p>
             </div>  
-            {{> eventList }}
+            <div data-role="collapsible-set" data-theme="a">
+                {{#each events}}
+                <div data-role="collapsible">
+                    <h3>{{this.when}}</h3>
+                    <ul data-role="listview">
+                    {{#each this.entries}}
+                    <li><img src="{{this.image}}"><h3>{{this.title}}</h3><p>{{desc}}</p></li>
+                    {{/each}}
+                    </ul>
+                </div>
+                {{/each}}
+            </div>
               <p>Powered by 
                 <img src="themes/images/titi_logo.png" alt="TiTi logo" width="60" height="53">
               </p>
@@ -75,24 +86,6 @@
         </div>
     </div>
 </template>
-
-<template name="manageEvents">
-    <div data-role="page" id="manageEvents" data-theme="a">
-        <div data-theme="a" data-role="header">
-          <a data-role="button" data-transition="slide" href="#timetilbud" class="ui-btn-left">
-              Back
-          </a>
-          <h3>
-            Redigér events
-          </h3>
-        </div>
-        <div data-role="content">
-            {{> eventList }}
-            <a data-role=button href="#editEvent">Nyt event eller tilbud</a>
-        </div>
-    </div>
-</template>
-
 <template name="eventList">
     <div data-role="collapsible-set" data-theme="a">
         <div data-role="collapsible">
@@ -124,6 +117,24 @@
         </div>
     </div>
 </template>
+
+<template name="manageEvents">
+    <div data-role="page" id="manageEvents" data-theme="a">
+        <div data-theme="a" data-role="header">
+          <a data-role="button" data-transition="slide" href="#timetilbud" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+            Redigér events
+          </h3>
+        </div>
+        <div data-role="content">
+            {{> eventList }}
+            <a data-role=button href="#editEvent">Nyt event eller tilbud</a>
+        </div>
+    </div>
+</template>
+
 
 <template name="showEvent">
 </template>
