@@ -66,12 +66,12 @@
               <p class="green">{{ date }}</p>
             </div>  
             <div data-role="collapsible-set" data-theme="a">
-                {{#each events}}
+                {{#each offers}}
                 <div data-role="collapsible">
                     <h3>{{this.when}}</h3>
                     <ul data-role="listview">
                     {{#each this.entries}}
-                    <li><img src="{{this.image}}"><h3>{{this.title}}</h3><p>{{desc}}</p></li>
+                    <li class="eventLink"><img src="{{this.image}}"><h3>{{this.title}}</h3><p>{{desc}}</p></li>
                     {{/each}}
                     </ul>
                 </div>
@@ -137,7 +137,20 @@
 
 
 <template name="showEvent">
+  <div data-role="page" id="showEvent" data-theme="a">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#timetilbud" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              {{offer.title}}
+          </h3>
+      </div>
+      <div data-role="content">
+      </div>
+  </div>
 </template>
+
 <template name="editEvent">
   <!-- Admin Add Tilbud -->
   <div data-role="page" id="editEvent" data-theme="a">
@@ -165,13 +178,13 @@
               <label for="product">
                   Titel
               </label>
-              <input name="product" id="product" placeholder="" value="{{product}}" type="text">
+              <input name="product" class="product" placeholder="" value="{{product}}" type="text">
           </div>
           <div data-role="fieldcontain">
               <label for="description">
                   Beskrivelse
               </label>
-              <textarea name="description" id="description" placeholder="" value="{{description}}"></textarea>
+              <textarea name="description" class="desc" placeholder="" value="{{description}}"></textarea>
           </div>
           <div class="ui-grid-a">
               <div class="ui-block-a">
@@ -179,7 +192,7 @@
                       <label for="reduction">
                           Rabat
                       </label>
-                      <input name="reduction" id="reduction" placeholder="%" value="{{reduction}}" type="text">
+                      <input name="reduction" class="reduction" placeholder="%" value="{{reduction}}" type="text">
                   </div>
               </div>
               <div class="ui-block-b">
@@ -187,7 +200,7 @@
                       <label for="price">
                           Pris
                       </label>
-                      <input name="price" id="price" placeholder="Dkr" value="{{price}}" type="text">
+                      <input name="price" class="price" placeholder="Dkr" value="{{price}}" type="text">
                   </div>
               </div>
           </div>
@@ -197,7 +210,7 @@
                       <label for="starttime">
                           Start
                       </label>
-                      <input name="starttime" id="starttime" placeholder="" value="{{starttime}}" type="datetime">
+                      <input name="starttime" class="starttime" placeholder="" value="{{starttime}}" type="datetime">
                   </div>
               </div>
               <div class="ui-block-b">
@@ -205,13 +218,13 @@
                       <label for="endtime">
                           Slut
                       </label>
-                      <input name="endtime" id="endtime" placeholder="" value="{{endtime}}" type="datetime">
+                      <input name="endtime" class="endtime" placeholder="" value="{{endtime}}" type="datetime">
                   </div>
               </div>
           </div>
-          <a data-role="button" id="uploadPhotoButton"> Tilføj billede</a>
-          <a data-role="button" id="saveEvent" data-inline=true> Gem </a>
-          <a data-role="button" id="deleteEvent" data-inline="true"> Slet</a>
+          <a data-role="button" class="uploadPhotoButton"> Tilføj billede</a>
+          <a data-role="button" class="saveEvent" data-inline=true>Gem</a>
+          <a data-role="button" class="deleteEvent" data-inline="true">Slet</a>
       </div>
   </div>
 </template>
