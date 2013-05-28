@@ -63,19 +63,28 @@ Time tilbud
 
 dummy event data for rendering test
 
-        #Template.timetilbud.offers = -> [ { when: "18:00 - 19:00", entries: [ {_id: "a", image: "url", title: "Event 1", desc: "some desc 1", isEvent: true}, {_id: "b", image: "url", title: "Tilbud 1", desc: "some desc 2"}, {_id: "c", image: "url", title: "Tilbud 2", desc: "some desc 3"} ] }, { when: "19:00 - 20:00", entries: [ {_id: "c", image: "url", title: "Tilbud 2", desc: "some desc 3"}, {_id: "d", image: "url", title: "Tilbud 3", desc: "some desc 4"} ] }, { when: "20:00 - 21:00", entries: [ {_id: "b", image: "url", title: "Tilbud 1", desc: "some desc 2"}, {_id: "c", image: "url", title: "Tilbud 2", desc: "some desc 3"}, {_id: "d", image: "url", title: "Tilbud 3", desc: "some desc 4"} ] }, { when: "21:00 - 22:00", entries: [ {_id: "e", image: "url", title: "Event 2", desc: "some desc 5"} ] } ]
-
         Template.timetilbud.offers = -> getEvents()
+        Template.manageEvents.offers = -> getEvents()
 
         Template.timetilbud.events
             "click .eventLink": ->
                 Session.set("currentOffer", this)
-                location.hash = "#showEvent"
+                $.mobile.changePage "#showEvent"
+
+        Template.timetilbud.events
+            "click .eventLink": ->
+                Session.set("currentOffer", this)
+                $.mobile.changePage "#showEvent"
 
         Template.manageEvents.events
             "click .eventLink": ->
                 Session.set("currentOffer", this)
-                location.hash = "#editEvent"
+                $.mobile.changePage "#editEvent"
+
+        Template.manageEvents.events
+            "click .newEvent": ->
+                Session.set("currentOffer", {})
+                $.mobile.changePage "#editEvent"
 
         this.getEvents = ->
             result = {}
@@ -87,7 +96,9 @@ dummy event data for rendering test
                 for time in times
                     result[time] = [] if not result[time]
                     result[time].push(event)
-            {when: key, entries: val} for key, val of result
+            result = ({when: key, entries: val} for key, val of result)
+            result.sort (a, b) -> if a.when < b.when then -1 else 1
+            result
 
 
         Template.showEvent.offer = ->
@@ -97,7 +108,17 @@ dummy event data for rendering test
 
         Template.editEvent.times = -> times
 
+        Template.editEvent.offer = -> 
+            offer = Session.get "currentOffer"
+            console.log "ed", offer
+            offer
+
+
         Template.editEvent.events
+            "click .deleteEvent": ->
+                id = (Session.get "currentOffer")._id
+                if id then Events.remove {_id: id}
+                $.mobile.changePage "#manageEvents"
             "click .saveEvent": ->
                 obj = 
                     isEvent: $("#typeIsEvent")[0].checked
@@ -107,11 +128,13 @@ dummy event data for rendering test
                     price: $(".price").val()
                     starttime: $(".starttime").val()
                     endtime: $(".endtime").val()
-                obj._id = this._id if this._id
-                if obj._id
-                    Events.update {_id: obj._id}, obj
+                id = (Session.get "currentOffer")._id
+                obj._id = id if id
+                if id
+                    Events.update {_id: id}, obj
                 else
                     Events.insert obj
+                $.mobile.changePage "#manageEvents"
 # Authors
 
 - http://lookatthis.dk - business model, content
